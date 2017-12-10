@@ -18,12 +18,25 @@ myVar = """1364	461	1438	1456	818	999	105	1065	314	99	1353	148	837	590	404	123
 
 myVar = [list(map(int, row.split('\t'))) for row in myVar.split('\n')]
 
-x = 0
-count = 0
 
-while x < len(myVar):
-    count += (max(myVar[x]) - min(myVar[x]))
-    x += 1
+def divide_by_elem(ls):
+    def helper(elem):
+        count2 = 1
+        i = 0
+        while i < len(ls):
+            divisor = ls[i]
+            if elem % divisor == 0:
+                if elem / divisor > count2:
+                    count2 = elem / divisor
+                    i += 1
+                else:
+                    i += 1
+            else:
+                i += 1
+        return count2
+    return max(list(map(helper, ls)))
+
+count = sum(list(map(divide_by_elem, myVar)))
     
 print(count)
 
