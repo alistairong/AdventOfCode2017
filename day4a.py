@@ -536,23 +536,3 @@ def checker(ls):
     return k
 
 print(checker(myVar))
-
-                   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
